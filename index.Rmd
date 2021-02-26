@@ -1,0 +1,50 @@
+---
+title: "Lab3"
+author: "Luis"
+date: "2/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data
+install.packages("dslabs")
+
+```{r}
+library(dslabs) #install packages
+library(tidyverse)
+dim(gapminder)
+gap2011<- gapminder %>%
+  as_tibble() %>%
+  filter(year==2011)
+  
+```
+
+
+## Life Expectancy
+
+```{r life}
+ggplot(data = gap2011) +
+  geom_point(mapping = aes(x = gdp/population, y = life_expectancy,
+                           size=population,color=continent))
+
+ggplot(data = gap2011) +
+  geom_histogram(mapping = aes(x=life_expectancy, fill=continent)) +
+  facet_wrap(~continent, nrow=3)
+  
+
+```
+
+## Fertility header
+
+```{r fertility}
+ggplot(data=gap2011)+
+  geom_point(mapping = aes(x=fertility, y = life_expectancy, size=population, color=continent))
+
+ggplot(data=gap2011)+
+  geom_point(mapping = aes(x=fertility, y = life_expectancy, size=population, color=life_expectancy))+
+  facet_wrap(~continent,nrow=2)
+```
+
