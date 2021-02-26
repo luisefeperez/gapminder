@@ -2,8 +2,8 @@ name: "Gapminder"
 navbar:
   title: "Our Collaborative Website"
   left:
-    - text: "Cars"
+    - text: "First graphs"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Second graphs"
+      href: lab3.html
 output_dir: "."
